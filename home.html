@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Головна{% endblock %}
+{% block content %}
+  <h1>Привіт 👋</h1>
+
+  {% if user.is_authenticated %}
+    <p>Ти увійшла як <b>{{ user.username }}</b>.</p>
+    <p class="small">Можеш перейти в <a href="/accounts/profile/">профіль</a>.</p>
+  {% else %}
+    <p>Це простий сайт з реєстрацією та входом.</p>
+    <p class="small">Почни з <a href="/accounts/register/">реєстрації</a> або <a href="/accounts/login/">входу</a>.</p>
+  {% endif %}
+{% endblock %}

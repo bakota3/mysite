@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Мій сайт{% endblock %}</title>
+  <style>
+    body{margin:0;padding:24px;background:#f6f7fb;font-family:-apple-system,system-ui,Arial,sans-serif}
+    .container{max-width:520px;margin:32px auto;background:#fff;padding:20px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+    h1{margin:0 0 12px;font-size:22px}
+    p{margin:0 0 16px;color:#444}
+    label{display:block;margin:12px 0 6px;font-weight:600;font-size:14px}
+    input{width:100%;padding:12px;border:1px solid #d7dbe7;border-radius:10px;font-size:16px}
+    button{width:100%;margin-top:16px;padding:12px;border:0;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;background:#111827;color:#fff}
+    a{color:#1d4ed8;text-decoration:none;font-weight:600}
+    .nav{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}
+    .msg{background:#f1f5ff;border:1px solid #dbe6ff;padding:10px;border-radius:10px;margin:10px 0}
+    .err{background:#fff1f1;border:1px solid #ffd0d0;padding:10px;border-radius:10px;margin:10px 0}
+    .small{font-size:13px;color:#666}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="nav">
+      <a href="/">Головна</a>
+      {% if user.is_authenticated %}
+        <a href="/accounts/profile/">Профіль</a>
+        <a href="/accounts/logout/">Вийти</a>
+      {% else %}
+        <a href="/accounts/register/">Реєстрація</a>
+        <a href="/accounts/login/">Вхід</a>
+      {% endif %}
+    </div>
+
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>

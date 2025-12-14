@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Профіль{% endblock %}
+{% block content %}
+  <h1>Профіль</h1>
+  <p>Ти увійшла як <b>{{ user.username }}</b>.</p>
+  <p class="small">Email: {{ user.email|default:"(не вказано)" }}</p>
+{% endblock %}
